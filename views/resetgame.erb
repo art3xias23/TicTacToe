@@ -1,0 +1,150 @@
+<%if $g.checkwinnerweb == 1%>
+		<h2><%=$credentials[0]%> wins!
+		<%$noOfWins1+=1%>
+		<%$noOfGames+=1%>
+		<h4>Numb of Games Played: <%=$noOfGames%></h4>
+		<h4><%=$credentials[0]%> wins: <%=$noOfWins1%></h4>
+		<h4>Player 2 wins: <%=$noOfWins2%></h4>
+		<h4>Number of Draws: <%=$noOfDraws%></h4>
+
+		<%=$g.displaykeyweb($matrix)%>
+		<%$turn=0%>
+		<%$matrix = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]%>
+		<h4>Please enjoy the game</h4>
+		
+
+		<h1><%=$g.displaymatrixweb($matrix1)%></h1>
+
+		
+			<%if $turn % 2 == 0%>
+				<h4><%=$credentials[0]%>'s turn</p><h4>
+				
+			<%else%>
+				<h4>Player 2's turn</h4>
+				
+			<%end%>
+
+		<h1><%=$g.displaykeyweb($matrix)%></h1>
+		<form action = "/game" method = "post">
+			Move:
+			<input type = "number" name = "guess" min = "1" max = "9">
+			<input type = "submit">
+			
+			
+
+			
+
+<%elsif $g.checkwinnerweb == 2%>
+		<h2>Player 2 wins!
+		<%$noOfWins2+=1%>	
+
+		<%$noOfGames+=1%>
+		<h4>Numb of Games Played: <%=$noOfGames%></h4>
+		<h4><%=$credentials[0]%> wins: <%=$noOfWins1%></h4>
+		<h4>Player 2 wins: <%=$noOfWins2%></h4>
+		<h4>Number of Draws: <%=$noOfDraws%></h4>
+
+		<%=$g.displaykeyweb($matrix)%>
+		<%$turn=0%>
+		<%$matrix = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]%>
+		<h4>Please enjoy the game</h4>
+		
+		
+
+		<h1><%=$g.displaymatrixweb($matrix1)%></h1>
+
+		<%if $turn % 2 == 0%>
+			<h4><%=$credentials[0]%>'s turn</p><h4>
+		<%else%>
+			<h4>Player 2's turn</h4>
+		<%end%>
+
+		<h1><%=$g.displaykeyweb($matrix)%></h1>
+		<form action = "/game" method = "post">
+			Move:
+			<input type = "number" name = "guess" min = "1" max = "9">
+			<input type = "submit">
+			
+
+			
+			
+<%else%>
+	
+	<%if $turn < 9%>
+		
+
+		
+		<h4>Numb of Games Played: <%=$noOfGames%></h4>
+		<h4><%=$credentials[0]%> wins: <%=$noOfWins1%></h4>
+		<h4>Player 2 wins: <%=$noOfWins2%></h4>
+		<h4>Number of Draws: <%=$noOfDraws%></h4>
+		<h4>Please enjoy the game</h4>
+
+		
+		
+
+		<p><%=$g.displaymatrixweb($matrix1)%></p>
+
+		<%if $turn % 2 == 0%>
+			<h4><%=$credentials[0]%>'s turn</p><h4>
+		<%else%>
+			<h4>Player 2's turn</h4>
+			
+		<%end%>
+
+		<p><%=$g.displaykeyweb($matrix)%></p>
+
+		
+
+			
+		<form action = "/game" method = "post">
+			Move:
+			<input type = "number" name = "guess" min = "1" max = "9">
+			<input type = "submit">
+			
+
+		
+
+	<%else%>
+
+
+		<h1>The game is a draw!</h1>
+		<%$noOfDraws+=1%>
+		<%$noOfGames+=1%>
+		<h4>Numb of Games Played: <%=$noOfGames%></h4>
+		<h4><%=$credentials[0]%> wins: <%=$noOfWins1%></h4>
+		<h4>Player 2 wins: <%=$noOfWins2%></h4>
+		<h4>Number of Draws: <%=$noOfDraws%></h4>
+		
+		
+		<h1><%=$g.displaykeyweb($matrix)%></h1>
+		<%$turn=0%>
+		<%$matrix = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]%>
+			
+			<h4>Please enjoy the game</h4>
+			
+			
+
+			<h1><%=$g.displaymatrixweb($matrix1)%></h1>
+
+			<%if $turn % 2 == 0%>
+				<h4><%=$credentials[0]%>'s turn</p><h4>
+			<%else%>
+				<h4>Player 2's turn</h4>
+			<%end%>
+
+			<h1><%=$g.displaykeyweb($matrix)%></h1>
+			<form action = "/game" method = "post">
+				Move:
+				<input type = "number" name = "guess" min = "1" max = "9">
+				<input type = "submit">
+				
+
+			
+			
+
+
+	<%end%>
+
+<%end%>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewports" content = "width = device - width"/>
+	<meta name = "description" content = "Tik Tak Toe"/>
+	<meta name = "keywords" content = "tik, tak, toe,noughts, crosses"/>
+	<title>Noughts and crosses</title>
+	<link rel = "stylesheet" href = "/style.css" type = "text/css"/>
+
+</head>
+
+<body>
+	<header>
+		<h1>Tic - Tac - Toe</h1>
+		<a href = "/" class = "button">Home</a><br>
+		
+		<a href = "/createaccount" class = "button">Register</a>
+		
+
+		<%if $credentials%>
+			<%if $credentials[0] !=''%>
+				<br><a href = "/game" class = "button">New Game</a>
+				<a href = "/resetgame" class = "button">Reset Game</a><br>
+				<br>Logged in as <p><br><a href="/user/<%=$credentials[0]%>"><b><%=$credentials[0]%></p></b><a><br>
+				
+				<a href ="/logout" style = "color: red";>Logout</a><br>
+				<%if $credentials[0] =="Admin"%>
+					<a href = "/admincontrols" class = "button">Admin Controls</a>
+				<%end%>
+			<%else%>
+				<a href= "/login" class = "button">Login</a>
+			<%end%>
+		<%else%>
+		<a href = "/login" class = "button">Login</a>
+		<%end%>
+		
+	</header>
+
+	<%=yield%>
+
+	<footer>
+		<p>Copyright 2016: Konstantin Milchev</p>
+	</footer>
+</body>
